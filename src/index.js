@@ -1,1 +1,1 @@
-const API_KEY = 32251243 - fbd11de6fcf1160e262026676;
+import { Notify } from notiflix'
