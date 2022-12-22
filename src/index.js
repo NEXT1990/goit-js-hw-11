@@ -1,1 +1,1 @@
-import { Notify } from notiflix'
+import { Notify } from notiflix
