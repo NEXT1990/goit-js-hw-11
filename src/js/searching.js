@@ -1,12 +1,35 @@
 import axios from 'axios';
 
-const API_KEY = `32251243-fbd11de6fcf1160e262026676`;
-function serchPhoto(event) {
-  const urlApi = `https://restcountries.com/v3.1/name/${name}?fields=name,capital,population,flags,languages`;
-  return fetch(urlApi).then(res => {
-    if (res.status !== 200) {
-      console.log('Все что угодно, но не 200!');
-    }
-    return res.json();
-  });
+export default class Searching {
+  constructor() {
+    url =
+      'https://pixabay.com/api/?image_type=photo&orientation=horizontal&safesearch=true';
+    q = '';
+    key = '32251243-fbd11de6fcf1160e262026676';
+    page = 1;
+    perPage = 40;
+    lengthArrayPhotos;
+  }
+
+  newPage() {
+    this.page = 1;
+  }
+
+  addPages() {
+    this.page += 1;
+  }
+
+  set setNewRequest(request) {
+    this.q = request;
+  }
+  get getCurrentRequest() {
+    return this.q;
+  }
+
+  onFetch() {
+    const url = `${this.url}&key=${this.key}&q=${this.q}&page=${this.page}&perPage=${this.perPage}`;
+    const resolve = axios.get(url);
+    this.lengthArrayPhotos = resolve.data.hits.length;
+    return resolve;
+  }
 }
