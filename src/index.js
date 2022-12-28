@@ -118,7 +118,7 @@ async function onLoadMoreBtn() {
     loadMoreBtn.endLoading();
     console.log(hits);
     console.log(totalHits);
-    if (totalHits === total) {
+    if (totalHits <= total) {
       loadMoreBtn.hide();
       Notify.info("We're sorry, but you've reached the end of search results.");
     }
