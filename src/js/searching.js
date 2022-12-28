@@ -39,14 +39,3 @@ export class PicturesApi {
     this.page = 1;
   }
 }
-
-// export default async function fetchPhotos(request) {
-//   const urlApi = `https://pixabay.com/api/?key=${API_KEY}&q=${request}&page=${page}&per_page=${perPage}&image_type=photo&orientation=horizontal&safesearch=true`;
-//   await axios(urlApi).then(res => {
-//     if (res.status !== 200) {
-//       console.log('Все что угодно, но не 200!');
-//     }
-//     console.log(res.data);
-//     return res;
-//   });
-// }
