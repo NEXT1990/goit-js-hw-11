@@ -66,6 +66,7 @@ async function onSubmit(event) {
     }
     Notify.info(`Hooray! We found ${totalHits} images.`);
     render(hits);
+    simpleLightBox.refresh();
     loadMoreBtn.show();
   } catch (error) {
     Notify.failure('Something bad');
