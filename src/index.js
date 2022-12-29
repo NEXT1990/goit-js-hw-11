@@ -51,6 +51,7 @@ async function onSubmit(event) {
     const { hits, totalHits } = await pictureApi.responseApi();
 
     if (hits.length === 0) {
+      gallery.remove();
       Notify.warning(
         'Sorry, there are no images matching your search query. Please try again.'
       );
@@ -58,12 +59,14 @@ async function onSubmit(event) {
       loadMoreBtn.hide();
       return;
     } else if (totalHits < 40) {
+      gallery.innerHTML = '';
       Notify.info(`Hooray! We found ${totalHits} images.`);
       render(hits);
       simpleLightBox.refresh();
       loadMoreBtn.hide();
       return;
     }
+    gallery.innerHTML = '';
     Notify.info(`Hooray! We found ${totalHits} images.`);
     render(hits);
     simpleLightBox.refresh();
